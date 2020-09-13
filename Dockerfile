@@ -4,8 +4,8 @@ RUN apt-get update -y
 RUN apt-get install -y python3-pip python3-dev build-essential
 RUN pip3 install --upgrade pip
 RUN echo Copying the Mythical Mysfits Flask service into a service directory.
-COPY ./service /MythicalMysfitsService
-WORKDIR /MythicalMysfitsService
+COPY ./ /SellClothesAnalyzer
+WORKDIR /SellClothesAnalyzer
 RUN echo Installing Python packages listed in requirements.txt
 RUN pip3 install -r ./requirements.txt
 RUN echo Starting python and starting the Flask service...
