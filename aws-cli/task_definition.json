@@ -1,0 +1,32 @@
+{
+  "family": "sellclothesanalyzerservice",
+  "cpu": "256",
+  "memory": "512",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "executionRoleArn": "arn:aws:iam::056695529414:role/SellClothesAnalyzerStack-EcsServiceRole-GYRXH0E21P5D",
+  "taskRoleArn": "arn:aws:iam::056695529414:role/SellClothesAnalyzerStack-ECSTaskRole-S5822CTZJXAH",
+  "containerDefinitions": [
+    {
+      "name": "SellClothesAnalyzer-Service",
+      "image": "056695529414.dkr.ecr.eu-west-1.amazonaws.com/sell_clothes_analyzer/service:latest",
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "protocol": "http"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "sellclothesanalyzer-logs",
+          "awslogs-region": "eu-west-1",
+          "awslogs-stream-prefix": "awslogs-sellclothesanalyzer-service"
+        }
+      },
+      "essential": true
+    }
+  ]
+}
