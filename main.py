@@ -24,8 +24,8 @@ def healthCheckResponse():
 # the website.  Because we do not yet have any persistent storage available for
 # our application, the mysfits are simply stored in a static JSON file. Which is
 # read from the the filesystem, and directly used as the service response.
-@app.route("/mysfits")
-def getMysfits():
+@app.route("/summary")
+def getSummary():
 
     # read the mysfits JSON from the listed file.
     data = transformation("./data/data.csv")
