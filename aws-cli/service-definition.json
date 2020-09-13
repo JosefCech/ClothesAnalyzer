@@ -1,0 +1,30 @@
+{
+  "serviceName": "SellClothesAnalyzer-Service",
+  "cluster": "SellClothesAnalyzer-Cluster",
+  "launchType": "FARGATE",
+  "deploymentConfiguration": {
+    "maximumPercent": 200,
+    "minimumHealthyPercent": 0
+  },
+  "desiredCount": 1,
+  "networkConfiguration": {
+    "awsvpcConfiguration": {
+      "assignPublicIp": "DISABLED",
+      "securityGroups": [
+        "sg-0efe27a4126dbeeb4"
+      ],
+      "subnets": [
+        "subnet-07824a064f6121db2",
+        "subnet-0c68c222f54dc74d3"
+      ]
+    }
+  },
+  "taskDefinition": "sellclothesanalyzerservice",
+  "loadBalancers": [
+    {
+      "containerName": "SellClothesAnalyzer-Service",
+      "containerPort": 8080,
+      "targetGroupArn": "arn:aws:elasticloadbalancing:eu-west-1:056695529414:targetgroup/SellClothesAnalyzer-TargetGroup/3f761a824bf9fb9d"
+    }
+  ]
+}
