@@ -7,6 +7,8 @@ name = "pypi"
 requests = "*"
 pydantic = "*"
 punq = "*"
+flask="*"
+flask_cors="*"
 
 
 [dev-packages]
